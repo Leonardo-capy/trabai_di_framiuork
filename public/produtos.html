@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Produtos</title>
+</head>
+<body>
+  <h1>Produtos Cadastrados</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Vendedor</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaProdutos">
+      <!-- Produtos serão carregados aqui -->
+    </tbody>
+  </table>
+
+  <br>
+  <a href="index.html">Voltar ao Cadastro</a>
+
+  <script>
+    async function carregarProdutos() {
+      try {
+        const res = await fetch('/produto');
+        const produtos = await res.json();
+
+        const tabela = document.getElementById('tabelaProdutos');
+        tabela.innerHTML = '';
+
+        produtos.forEach(prod => {
+          const linha = document.createElement('tr');
+          linha.innerHTML = `
+            <td>${prod.id}</td>
+            <td>${prod.nome}</td>
+            <td>R$ ${parseFloat(prod.preco).toFixed(2)}</td>
+            <td>${prod.vendedor}</td>
+          `;
+          tabela.appendChild(linha);
+        });
+      } catch (err) {
+        document.body.innerHTML += '<p>Erro ao carregar produtos.</p>';
+      }
+    }
+
+    carregarProdutos();
+  </script>
+</body>
+</html>
