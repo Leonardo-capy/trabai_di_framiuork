@@ -39,7 +39,7 @@ cd trabai_di_framiuork
 ### 2. Instale as dependências
 
 ```bash
-npm install
+npm i
 ```
 
 ### 3. Configure o banco de dados MySQL
@@ -47,9 +47,25 @@ npm install
 Crie um banco e execute o script `main.sql` para gerar a tabela:
 
 ```sql
-CREATE DATABASE seubanco;
+CREATE DATABASE trabalho_catalogo;
 
-USE seubanco;
+USE trabalho_catalogo;
+
+CREATE TABLE produto (
+    id INT PRIMARY KEY NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    vendedor VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE usuario (
+	id_usuario INT PRIMARY KEY NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    CHECK (CHAR_LENGTH(senha)  >=8 ),
+    email VARCHAR(255),
+    CHECK (email LIKE '%@%')
+);
 
 -- Execute o conteúdo de main.sql aqui
 ```
