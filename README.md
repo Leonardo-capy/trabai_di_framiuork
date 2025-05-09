@@ -19,8 +19,7 @@ Aplicação simples para cadastro e listagem de produtos usando **Fastify**, **T
 ├── main.sql                # Script para criar a tabela no banco de dados
 ├── public/                 # Frontend estático servido pelo Fastify
 │   ├── index.html          # Página de cadastro de produtos
-│   ├── produtos.html       # Página de listagem de produtos
-│   └── cadastro_pessoa.html # (Opcional) Página futura para cadastro de pessoas
+│   └── produtos.html       # Página de listagem de produtos
 ├── package.json
 ├── package-lock.json
 ├── .gitignore
