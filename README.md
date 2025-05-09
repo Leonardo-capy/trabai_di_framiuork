@@ -31,8 +31,8 @@ Aplicação simples para cadastro e listagem de produtos usando **Fastify**, **T
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Leonardo-capy/trabai_di_framiuork.git
-cd trabai_di_framiuork
+git clone https://github.com/Leonardo-capy/trabai_di_framiuork-main.git
+cd trabai_di_framiuork-main
 ```
 
 ### 2. Instale as dependências
